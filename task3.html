@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    //--------------------------------------------------------------------------------------------------------------------------
+    var request = new XMLHttpRequest();
+    request.open('GET','https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=908cd4c869394c5676a63ac704fb78d4',true);
+    request.send();
+    request.onload = function()
+    {
+        var data = JSON.parse(this.response);
+        console.log(data);
+    }
+
+    //--------------------------------------------------------------------------------------------------------------------------
+
+    String.prototype.toProperCase = function () {
+    return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});};
+    console.log("mani bharath".toProperCase());
+
+    //--------------------------------------------------------------------------------------------------------------------------
+    //3.Sum of all numbers in an array 
+
+    var a = [1,2,3,4,5,11,17];
+    var sum =0;
+    for(var i=0; i<a.length; i++)
+    {
+    sum += a[i];
+    }
+    console.log(sum);
+
+    //----------------------------------------------------------------------------------------------------------------------------
+    //4.Return all the prime numbers in an array 
+
+    var numArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    numArray = numArray.filter((number) => {
+      if(number > 1)
+      {
+          for (var i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i === 0) return false;
+          }
+          return true;
+      }
+    });
+
+    console.log(numArray);
+
+    //----------------------------------------------------------------------------------------------------------------
+    //5.Return all the palindromes in an array 
+
+    function checkPalindrome(arr) {
+      const len = arr.length;
+      if (len % 2 == 0) return 'Not Palindrome';
+
+      for (let i = 0; i < len / 2; i++) {
+        if (arr[i] !== arr[len - i - 1]) return 'Not Palindrome';
+      }
+      return 'Palindrome';
+    }
+
+    var arr = [1, 3, 5, 2, 1];
+    var output = checkPalindrome(arr);
+    console.log(output);
+
+    //------------------------------------------------------------------------------------------------
+    //7.Remove duplicates from an array 
+
+    let chars = ['A', 'B', 'A', 'C', 'B','D','E','D'];
+    let uniqueChars = [...new Set(chars)];
+
+    console.log(uniqueChars);
+
+    //--------------------------------------------------------------------------------------------------
+    //8.Rotate an array by k times and return the rotated array.
+
+    const nums = [1,2,3,4,5];
+    const k = 2;
+
+    function arrayRotate(arr,k) {
+      for(i=0; i<k; i++)
+      {
+          arr.unshift(arr.pop());
+      }
+        return arr;
+    }
+          
+    function myGFG() {
+        array = arrayRotate(nums,k);
+        console.log(array);
+    }
+    myGFG();
+
+    //--------------------------------------------------------------------------------------------------
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
